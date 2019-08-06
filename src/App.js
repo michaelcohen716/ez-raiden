@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Nav from "./components/Nav";
+import Channels from "./components/Channels";
+import "./App.css";
+
+/* 
+Noun Project Attributions:
+- clipboard by jon trillana from the Noun Project
+- doors by Arif Fatoni from the Noun Project
+- pay, coin, quit, close  by Yaroslav Samoilov from the Noun Project
+ */
 
 function App() {
+  const tabs = ["Channels", "Tokens", "Address Book", "About"];
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app d-flex flex-column">
+      <Nav tabs={tabs} activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Channels />
     </div>
   );
 }
