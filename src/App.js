@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Nav from "./components/Nav";
-import Channels from "./components/Channels";
+import Channels from "./components/Channels/Channels";
 import "./App.css";
 
 /* 

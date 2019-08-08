@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Nav.css";
 
 function NavItem({ text, onClick, activeTab, idx }) {

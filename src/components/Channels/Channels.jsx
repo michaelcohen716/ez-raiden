@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { _getChannels, _getToken } from "../raiden";
+import { _getChannels, _getToken } from "../../raiden";
 import ChannelItem from "./ChannelItem";
 import "./Channels.css";
 
+export const dashTypes = ["pay", "deposit", "withdraw", "close"];
+
 function Channels() {
   const [channels, setChannels] = useState([]);
+  const [activeDash, setActiveDash] = useState({
+    "type": null,
+    "index": null
+  });
+
   useEffect(() => {
     const getChannels = async () => {
       const resp = await _getChannels();
@@ -24,7 +31,15 @@ function Channels() {
         <div className="page-header my-2">my channels</div>
         <div className="d-flex flex-column">
           {channels.map((c, i) => {
-            return <ChannelItem channel={c} key={i} />;
+            return (
+              <ChannelItem
+                channel={c}
+                activeDash={activeDash}
+                setActiveDash={setActiveDash}
+                key={i}
+                idx={i}
+              />
+            );
           })}
         </div>
       </div>
