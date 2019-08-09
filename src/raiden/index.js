@@ -8,7 +8,7 @@ export async function _getTokens() {
 }
 
 export async function _getToken(addr) {
-  const resp = await axios.get(`${url + "channels/" + addr}`);
+  const resp = await axios.get(`${url + "tokens/" + addr}`);
   return resp;
 }
 

@@ -4,7 +4,7 @@ import "./Nav.css";
 function NavItem({ text, onClick, activeTab, idx }) {
   return (
     <div
-      className={`nav-item my-auto ${idx === 0 ? "mr-4" : "mx-4"} ${
+      className={`nav-item my-auto ${idx === 0 ? "mr-4 ml-2" : "mx-4"} ${
         text === activeTab ? "nav-item-active" : ""
       }`}
       onClick={onClick}

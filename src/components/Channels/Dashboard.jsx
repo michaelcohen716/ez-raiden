@@ -10,7 +10,7 @@ import close from "../../assets/close.png";
 import "./Dashboard.css";
 
 function Dashboard({ type, channel, channelId }) {
-  const [value, setValue] = useState("0.000000000000000001");
+  const [value, setValue] = useState("1");
 
   const getImg = () => {
     switch (type) {
@@ -25,7 +25,7 @@ function Dashboard({ type, channel, channelId }) {
     }
   };
 
-  const { token_address, partner_address } = channel;
+  const { token_address, token_network_address, partner_address } = channel;
 
   const payChannel = async() => {
     const resp = await _payChannel(token_address, partner_address, (Number(value) * 10**18));

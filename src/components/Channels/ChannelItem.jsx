@@ -50,15 +50,15 @@ function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
           />
         </Tooltip>
         <div className="ml-2 d-flex">
-          <div className="font-weight-bold blue-text">
+          <div className="font-weight-bold">
             {tokenMapping[token_address]}
           </div>
           <div className="ml-3">balance:</div>
-          <div className="blue-text">
+          <div className="">
             {new BN(balance).toString() / 10 ** 18}
           </div>
           <div className="ml-3">partner:</div>
-          <div className="blue-text">
+          <div>
             {addressSlice(partner_address)}
           </div>
           <Tooltip content="copy address" className="ml-1">

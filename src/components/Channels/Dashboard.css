@@ -31,7 +31,8 @@
 }
 
 .dash-input {
-  background: lightgray;
+  background: #2980B9;
+  color: white;
 }
 
 input,

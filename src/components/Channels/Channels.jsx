@@ -28,7 +28,7 @@ function Channels() {
   return (
     <div className="mt-3">
       <div className="d-flex flex-column">
-        <div className="page-header my-2">my channels</div>
+        <div className="page-header my-2 ml-2">my channels</div>
         <div className="d-flex flex-column">
           {channels.map((c, i) => {
             return (
