@@ -8,6 +8,8 @@ Noun Project Attributions:
 - clipboard by jon trillana from the Noun Project
 - doors by Arif Fatoni from the Noun Project
 - pay, coin, quit, close  by Yaroslav Samoilov from the Noun Project
+- Plus by Alina Oleynik from the Noun Project
+- Next by Ilham Fitrotul Hayat from the Noun Project
  */
 
 function App() {

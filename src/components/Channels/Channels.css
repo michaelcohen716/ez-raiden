@@ -26,7 +26,6 @@
   margin-top: 2px;
 }
 
-
 .react-tooltip-lite {
   background: #333;
   color: white;
@@ -38,5 +37,43 @@
 
 .channel-icon {
   height: 24px;
+  cursor: pointer;
+}
+
+.plus-button {
+  height: 30px;
+  cursor: pointer;
+}
+
+.symbol-holder {
+  width: 200px;
+  max-width: 200px;
+  overflow-y: scroll;
+}
+
+.token-symbol {
+  cursor: pointer;
+  box-shadow: 2px -2px 2px rgba(255, 0, 0, 0.2);
+}
+
+.channel-input {
+  outline: none;
+  border: none;
+  background: #2980b9;
+  padding-bottom: -1px;
+  border-bottom: 1px solid blue !important;
+}
+
+.input-label {
+  margin-top: 2px;
+}
+
+.channel-input:focus {
+  outline: none;
+  border: none;
+}
+
+.next-icon {
+  height: 20px;
   cursor: pointer;
 }

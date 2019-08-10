@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { _getChannels, _getToken } from "../../raiden";
 import ChannelItem from "./ChannelItem";
+import CreateChannel from "./CreateChannel";
 import "./Channels.css";
 
 export const dashTypes = ["pay", "deposit", "withdraw", "close"];
@@ -30,6 +31,7 @@ function Channels() {
       <div className="d-flex flex-column">
         <div className="page-header my-2 ml-2">my channels</div>
         <div className="d-flex flex-column">
+          <CreateChannel  />
           {channels.map((c, i) => {
             return (
               <ChannelItem

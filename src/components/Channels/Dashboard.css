@@ -52,3 +52,14 @@ input:focus {
   height: 24px;
   cursor: pointer;
 }
+
+.create-dash {
+  left: 800px;
+  top: 155px;
+}
+
+.open-channel-btn {
+  box-shadow: 4px 6px 8px rgba(0, 0, 255, 0.2);
+  width: 80px;
+  cursor: pointer;
+}

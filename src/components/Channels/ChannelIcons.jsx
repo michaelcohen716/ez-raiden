@@ -24,7 +24,6 @@ function ChannelIcons({
       onClick={() => setActiveDash({ type, index })}
     />
   );
-  console.log("channel", channel);
 
   return (
     <div className="d-flex">

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import web3 from "web3";
 import ChannelIcons from "./ChannelIcons";
 import Tooltip from "../common/Tooltip";
-import { tokenMapping } from "../../utils/tokenUtil";
+import { _getSymbol } from "../../utils/tokenUtil";
 import { addressSlice } from "../../utils/helper";
 import clipboard from "../../assets/clipboard.png";
 import clipboardWhite from "../../assets/clipboard-white.png";
@@ -15,6 +15,7 @@ const BN = web3.utils.BN;
 
 function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
   const [clipboardImage, toggleClipboardImage] = useState(false);
+  const [symbol, setSymbol] = useState("");
   const {
     channel_identifier,
     balance,
@@ -22,6 +23,15 @@ function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
     token_address,
     state
   } = channel;
+
+  useEffect(() => {
+    const getSymbol = async() => {
+      const symbol = await _getSymbol(token_address);
+      setSymbol(symbol)
+    }
+
+    getSymbol()
+  })
 
   const copyAddress = () => {
     navigator.clipboard.writeText(partner_address);
@@ -51,7 +61,7 @@ function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
         </Tooltip>
         <div className="ml-2 d-flex">
           <div className="font-weight-bold">
-            {tokenMapping[token_address]}
+            {symbol}
           </div>
           <div className="ml-3">balance:</div>
           <div className="">
