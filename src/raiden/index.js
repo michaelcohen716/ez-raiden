@@ -2,6 +2,9 @@ const axios = require("axios");
 
 const url = "http://localhost:5001/api/v1/";
 
+/* 
+Tokens
+ */
 export async function _getTokens() {
   const resp = await axios.get(`${url + "tokens"}`);
   return resp;
@@ -12,6 +15,9 @@ export async function _getToken(addr) {
   return resp;
 }
 
+/*
+Channels
+ */
 export async function _getChannels() {
   const resp = await axios.get(`${url + "channels"}`);
   return resp;
@@ -20,6 +26,13 @@ export async function _getChannels() {
 export async function _getChannel(tokenAddr, partnerAddr) {
   const resp = await axios.get(
     `${url + "channels/" + tokenAddr + "/" + partnerAddr}`
+  );
+  return resp;
+}
+
+export async function _getChannelByToken(tokenAddr) {
+  const resp = await axios.get(
+    `${url + "channels/" + tokenAddr}`
   );
   return resp;
 }
@@ -93,4 +106,24 @@ export async function _closeChannel(tokenAddr, partnerAddr) {
       state: "closed"
     }
   });
+
+  return resp;
 }
+
+/*
+Connections
+ */
+export async function _getConnections() {
+  const resp = await axios.get(`${url + "connections"}`);
+  return resp;
+}
+
+
+/*
+Utils
+ */
+export async function _getAddress() {
+  const resp = await axios.get(`${url + "address"}`);
+  return resp;
+}
+

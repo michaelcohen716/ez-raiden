@@ -49,6 +49,7 @@
   width: 200px;
   max-width: 200px;
   overflow-y: scroll;
+  box-shadow: 1px 2px 4px rgba(0, 0, 255, 0.2);
 }
 
 .token-symbol {
@@ -62,6 +63,7 @@
   background: #2980b9;
   padding-bottom: -1px;
   border-bottom: 1px solid blue !important;
+  color: white;
 }
 
 .input-label {
@@ -71,6 +73,10 @@
 .channel-input:focus {
   outline: none;
   border: none;
+}
+
+.channel-input::placeholder {
+  color: black;
 }
 
 .next-icon {

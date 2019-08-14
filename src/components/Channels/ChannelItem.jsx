@@ -31,7 +31,7 @@ function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
     }
 
     getSymbol()
-  })
+  }, [])
 
   const copyAddress = () => {
     navigator.clipboard.writeText(partner_address);
@@ -65,7 +65,7 @@ function ChannelItem({ channel, activeDash, setActiveDash, idx }) {
           </div>
           <div className="ml-3">balance:</div>
           <div className="">
-            {new BN(balance).toString() / 10 ** 18}
+            {new BN(balance).toString()}
           </div>
           <div className="ml-3">partner:</div>
           <div>

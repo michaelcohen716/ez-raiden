@@ -114,8 +114,6 @@ function CreateChannel() {
     }
   };
 
-  console.log("Selected token", selectedToken);
-
   return (
     <div className="d-flex channel-item p-3 my-3">
       <img

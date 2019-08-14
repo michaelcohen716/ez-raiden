@@ -16,12 +16,7 @@ import close from "../../assets/close.png";
 import next from "../../assets/next.png";
 import "./Dashboard.css";
 
-function Dashboard({
-  type,
-  channel,
-  channelId,
-  openChannelBool
-}) {
+function Dashboard({ type, channel, channelId, openChannelBool }) {
   const [value, setValue] = useState("1");
 
   const getImg = () => {
@@ -114,7 +109,7 @@ function Dashboard({
         <div className="d-flex flex-column">
           <div className="mt-4 position-relative">
             <div className="d-flex position-absolute confirm-open">
-              <div className="dash-head">channel</div>
+              <div className="dash-head">open channel?</div>
             </div>
             <div className="position-absolute dash-main d-flex flex-column px-3">
               <div className="font-weight-bold mt-2">
@@ -123,8 +118,13 @@ function Dashboard({
               <div className="font-weight-bold mt-2">
                 token: {addressSlice(token_address)}
               </div>
-              <div className="font-weight-bold mt-2">deposit: {channelDeposit}</div>
-              <div className="open-channel-btn d-flex mt-2 p-2" onClick={openChannel}>
+              <div className="font-weight-bold mt-2">
+                deposit: {channelDeposit}
+              </div>
+              <div
+                className="open-channel-btn d-flex mt-2 p-2"
+                onClick={openChannel}
+              >
                 <div className="font-weight-bold">open</div>
                 <img src={next} className="ml-1 img-fluid cta-img" />
               </div>
@@ -147,8 +147,9 @@ function Dashboard({
                 token: {addressSlice(token_address)}
               </div>
               <input
+                disabled={type === dashTypes[3] ? true : false}
                 className="mt-1 dash-input"
-                value={value}
+                value={type === dashTypes[3] ? "-" : value}
                 placeholder="amount"
                 onChange={e => setValue(e.target.value)}
               />

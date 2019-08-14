@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import clipboardWhite from "../assets/clipboard-white.png";
+import clipboard from "../assets/clipboard.png";
+import { _getAddress } from "../raiden";
+import { addressSlice } from "../utils/helper";
 import "./Nav.css";
 
 function NavItem({ text, onClick, activeTab, idx }) {
@@ -15,6 +19,27 @@ function NavItem({ text, onClick, activeTab, idx }) {
 }
 
 function Nav({ tabs, activeTab, setActiveTab }) {
+  const [address, setAddress] = useState("");
+  const [clipboardImage, toggleClipboardImage] = useState(false);
+
+  useEffect(() => {
+    const getAddress = async () => {
+      let addr = await _getAddress();
+      console.log("addr", addr);
+      setAddress(addr.data.our_address);
+    };
+
+    getAddress();
+  }, []);
+
+  const copyAddress = () => {
+    navigator.clipboard.writeText(address);
+    toggleClipboardImage(true);
+    setTimeout(() => {
+      toggleClipboardImage(false);
+    }, 500);
+  };
+
   return (
     <div className="d-flex justify-content-between">
       <div className="d-flex">
@@ -30,7 +55,17 @@ function Nav({ tabs, activeTab, setActiveTab }) {
           );
         })}
       </div>
-      <div className="title-text mr-5">ez-raiden</div>
+      <div className="d-flex flex-column">
+        <div className="title-text mr-5">ez-raiden</div>
+        <div className="d-flex">
+          <img
+            onClick={copyAddress}
+            src={clipboardImage ? clipboard : clipboardWhite}
+            className="img-fluid clipboard mr-2"
+          />
+          <div>{address.length ? addressSlice(address) : ""}</div>
+        </div>
+      </div>
     </div>
   );
 }
