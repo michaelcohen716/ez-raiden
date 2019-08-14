@@ -1,0 +1,69 @@
+.dashboard {
+  top: -18px;
+  left: 36px;
+  width: 300px;
+  height: 265px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 255, 0.2);
+}
+
+.cornerbox {
+  left: 20px;
+}
+
+.dash-icon {
+  height: 36px;
+}
+
+.dash-head {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.head-holder {
+  top: 12px;
+  left: -16px;
+}
+
+.dash-main {
+  top: 80px;
+  left: -100px;
+  width: 300px;
+}
+
+.dash-input {
+  background: #2980B9;
+  color: white;
+}
+
+.dash-input::placeholder {
+  color: black;
+}
+
+input,
+input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid blue !important;
+}
+
+.cta {
+  height:26px;
+  width: 60px;
+  margin-top: 12px
+}
+
+.cta-img {
+  height: 24px;
+  cursor: pointer;
+}
+
+.create-dash {
+  left: 800px;
+  top: 155px;
+}
+
+.open-channel-btn {
+  box-shadow: 4px 6px 8px rgba(0, 0, 255, 0.2);
+  width: 80px;
+  cursor: pointer;
+}

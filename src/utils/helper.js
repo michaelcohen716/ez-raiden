@@ -1,0 +1,1 @@
+export const addressSlice = (addr) => addr.slice(0, 4) + "..." + addr.slice(38);

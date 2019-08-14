@@ -1,0 +1,85 @@
+.channel-item {
+  border-bottom: 1px inset black;
+  width: 650px;
+  height: 80px;
+  border-radius: 8px;
+  box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.blue-text {
+  color: blue;
+}
+
+.page-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.clipboard {
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.channel-status {
+  height: 30px;
+  margin-top: 2px;
+}
+
+.react-tooltip-lite {
+  background: #333;
+  color: white;
+}
+
+.react-tooltip-lite-arrow {
+  border-color: #333;
+}
+
+.channel-icon {
+  height: 24px;
+  cursor: pointer;
+}
+
+.plus-button {
+  height: 30px;
+  cursor: pointer;
+}
+
+.symbol-holder {
+  width: 200px;
+  max-width: 200px;
+  overflow-y: scroll;
+  box-shadow: 1px 2px 4px rgba(0, 0, 255, 0.2);
+}
+
+.token-symbol {
+  cursor: pointer;
+  box-shadow: 2px -2px 2px rgba(255, 0, 0, 0.2);
+}
+
+.channel-input {
+  outline: none;
+  border: none;
+  background: #2980b9;
+  padding-bottom: -1px;
+  border-bottom: 1px solid blue !important;
+  color: white;
+}
+
+.input-label {
+  margin-top: 2px;
+}
+
+.channel-input:focus {
+  outline: none;
+  border: none;
+}
+
+.channel-input::placeholder {
+  color: black;
+}
+
+.next-icon {
+  height: 20px;
+  cursor: pointer;
+}
