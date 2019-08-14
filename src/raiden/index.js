@@ -160,5 +160,3 @@ export async function _getPayments(tokenAddr, targetAddr) {
   );
   return resp;
 }
-
-// {target: "0x08C1eC9d1fC88688C3C80E400369D4D448bF449f", event: "EventPaymentSentFailed", log_time: "2019-08-08 20:14:17", reason: "there is no route available"}
