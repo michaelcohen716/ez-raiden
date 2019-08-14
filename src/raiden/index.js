@@ -1,3 +1,4 @@
+import { toChecksumAddress } from "../utils/tokenUtil";
 const axios = require("axios");
 
 const url = "http://localhost:5001/api/v1/";
@@ -12,6 +13,15 @@ export async function _getTokens() {
 
 export async function _getToken(addr) {
   const resp = await axios.get(`${url + "tokens/" + addr}`);
+  return resp;
+}
+
+export async function _registerToken(addr) {
+  const checkedAddr = toChecksumAddress(addr);
+  const resp = await axios({
+    method: "put",
+    url: `${url + "tokens/" + checkedAddr}`
+  });
   return resp;
 }
 
@@ -31,9 +41,7 @@ export async function _getChannel(tokenAddr, partnerAddr) {
 }
 
 export async function _getChannelByToken(tokenAddr) {
-  const resp = await axios.get(
-    `${url + "channels/" + tokenAddr}`
-  );
+  const resp = await axios.get(`${url + "channels/" + tokenAddr}`);
   return resp;
 }
 
@@ -118,6 +126,25 @@ export async function _getConnections() {
   return resp;
 }
 
+export async function _addTokens(tokenAddr, funds) {
+  const resp = await axios({
+    method: "put",
+    url: `${url + "connections/" + tokenAddr}`,
+    data: {
+      funds
+    }
+  });
+  return resp;
+}
+
+export async function _leaveNetwork(tokenAddr) {
+  const resp = await axios({
+    method: "delete",
+    url: `${url + "connections/" + tokenAddr}`
+  });
+
+  return resp;
+}
 
 /*
 Utils
@@ -127,3 +154,11 @@ export async function _getAddress() {
   return resp;
 }
 
+export async function _getPayments(tokenAddr, targetAddr) {
+  const resp = await axios.get(
+    `${url + "payments/" + tokenAddr + "/" + targetAddr}`
+  );
+  return resp;
+}
+
+// {target: "0x08C1eC9d1fC88688C3C80E400369D4D448bF449f", event: "EventPaymentSentFailed", log_time: "2019-08-08 20:14:17", reason: "there is no route available"}

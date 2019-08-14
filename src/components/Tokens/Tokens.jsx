@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import TokenItem from "./TokenItem";
+import RegisterToken from "./RegisterToken";
 import { _getTokens, _getConnections } from "../../raiden";
 
-export const processTypes = ["pay", "add", "close", "connect"];
+export const processTypes = ["pay", "add", "leave", "join"];
 
 function Tokens() {
   const [tokens, setTokens] = useState([]);
@@ -27,11 +28,11 @@ function Tokens() {
     getConnections();
   }, []);
 
-  console.log("connections", connections);
   return (
     <div className="d-flex flex-column">
       <div className="page-header my-2 ml-2">my tokens</div>
       <div className="d-flex flex-column">
+        <RegisterToken />
         {tokens.map((t, i) => {
           return (
             <TokenItem

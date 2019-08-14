@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Nav from "./components/Nav";
 import Channels from "./components/Channels/Channels";
 import Tokens from "./components/Tokens/Tokens";
+import AddressBook from "./components/AddressBook";
+import About from "./components/About";
 import "./App.css";
 
 /* 
@@ -26,8 +28,10 @@ function App() {
         return <Channels />;
       case tabs[1]:
         return <Tokens />;
+      case tabs[2]:
+        return <AddressBook />
       default:
-        return null;
+        return <About />;
     }
   };
 

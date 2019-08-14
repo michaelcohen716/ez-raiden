@@ -7,7 +7,7 @@ import add from "../../assets/plus.png";
 import close from "../../assets/close.png";
 import connect from "../../assets/connect.png";
 import { processTypes } from "./Tokens";
-import { _getChannelByToken } from "../../raiden";
+import { _getChannelByToken, _getPayments } from "../../raiden";
 import { _getSymbol } from "../../utils/tokenUtil";
 import { addressSlice } from "../../utils/helper";
 import "./Tokens.css";
@@ -15,12 +15,6 @@ import "./Tokens.css";
 function TokenItem({ token, connection, activeDash, setActiveDash, idx }) {
   const [symbol, setSymbol] = useState("");
   const [tokenBalance, setTokenBalance] = useState(0);
-
-  //   const [processOpen, toggleProcessOpen] = useState(false);
-  const [step, incrementStep] = useState(0);
-  const [processType, setProcessType] = useState(null);
-  const [amount, setAmount] = useState("");
-  const [receiver, setReceiver] = useState("");
 
   useEffect(() => {
     const getChannels = async () => {
@@ -53,14 +47,14 @@ function TokenItem({ token, connection, activeDash, setActiveDash, idx }) {
   return (
     <div className="d-flex justify-content-between channel-item p-3 my-3">
       <div className="d-flex my-auto">
-        <div className="d-flex token-symbol-area">
+        <div className="d-flex token-symbol-area my-auto">
           <img src={tokenImg} className="img-fluid channel-status" />
-          <div className="font-weight-bold ml-2">{symbol}</div>
+          <div className="font-weight-bold ml-2 my-auto">{symbol}</div>
         </div>
-        <div className="ml-4 font-weight-bold">address: </div>
-        <div> {addressSlice(token)}</div>
-        <div className="ml-4 font-weight-bold">balance: </div>
-        <div> {tokenBalance}</div>
+        <div className="ml-5 font-weight-bold my-auto">address: </div>
+        <div className="my-auto"> {addressSlice(token)}</div>
+        <div className="ml-4 font-weight-bold my-auto">balance: </div>
+        <div className="my-auto"> {tokenBalance}</div>
         {connection ? (
           <div className="d-flex">
             <div className="my-auto ml-3">
@@ -89,7 +83,7 @@ function TokenItem({ token, connection, activeDash, setActiveDash, idx }) {
       </div>
         {idx === activeDash["index"] && (
           <div className="position-relative">
-            <TokenDashboard type={activeDash["type"]} />
+            <TokenDashboard addr={token} type={activeDash["type"]} />
           </div>
         )}
     </div>

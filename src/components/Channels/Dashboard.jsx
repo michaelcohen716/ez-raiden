@@ -6,7 +6,8 @@ import {
   _depositToChannel,
   _withdrawFromChannel,
   _closeChannel,
-  _openChannel
+  _openChannel,
+  _getPayments
 } from "../../raiden";
 import { addressSlice } from "../../utils/helper";
 import pay from "../../assets/pay.png";
@@ -18,6 +19,7 @@ import "./Dashboard.css";
 
 function Dashboard({ type, channel, channelId, openChannelBool }) {
   const [value, setValue] = useState("1");
+  const [responseText, setResponseText] = useState("")
 
   const getImg = () => {
     switch (type) {
@@ -49,7 +51,22 @@ function Dashboard({ type, channel, channelId, openChannelBool }) {
 
   const { token_address, partner_address, deposit: channelDeposit } = channel;
 
+  const pollForPaymentEvent = async(tokenAdrr, partnerAddr) => {
+    const events = await _getPayments(tokenAdrr, partnerAddr);
+    const numEvents = events.data.length;
+
+    const pollInt = setInterval(async() => {
+      const newEvents = await _getPayments(tokenAdrr, partnerAddr);
+      if(newEvents.data.length > numEvents){
+        console.log("newEvents", newEvents.data[newEvents.data.length - 1])
+        setResponseText(newEvents.data[newEvents.data.length - 1].event)
+        clearInterval(pollInt)
+      }
+    }, 100)
+  }
+
   const payChannel = async () => {
+    pollForPaymentEvent(token_address, partner_address)
     const resp = await _payChannel(
       token_address,
       partner_address,
@@ -156,6 +173,7 @@ function Dashboard({ type, channel, channelId, openChannelBool }) {
               <div className="cta" onClick={getFunc()}>
                 <img src={getImg()} className="img-fluid cta-img" />
               </div>
+              <div className="resp-text mt-1">{responseText}</div>
             </div>
           </div>
         </div>

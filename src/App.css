@@ -4,3 +4,8 @@ body {
   padding: 16px 100px;
   font-family: 'Inconsolata', monospace;
 }
+
+.under-development {
+  font-size: 14px;
+  width: 500px;
+}
