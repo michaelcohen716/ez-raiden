@@ -9,7 +9,7 @@ A no-frills UI for interacting with the Raiden Payment Network.
 - A straightforward interface for tracking token balances in payment channels and transferring those tokens to partners
 
 #### What it needs:
-- Validations, error messages, advanced features, ENS integration
+- Validations, error messages, event tracking, advanced features, ENS integration
 
 #### To Get ez-raiden Running:
 
