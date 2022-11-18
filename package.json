@@ -8,7 +8,7 @@
     "keccak": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-shapes": "^0.1.0",
     "react-tooltip-lite": "^1.10.0",
     "web3": "^1.2.1"
